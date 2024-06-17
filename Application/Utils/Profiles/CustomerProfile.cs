@@ -8,8 +8,7 @@ namespace Coupons.Application.Utils.Profiles
     {
         public CustomerProfile()
         {
-            CreateMap<CustomerDto, Customer>();
-            CreateMap<Customer, CustomerDto>();
+            CreateMap<CustomerDto, Customer>().ForAllMembers(options => options.Condition((src, dest, srcMember) => srcMember != null));
         }
     }
 }
