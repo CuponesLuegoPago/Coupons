@@ -4,7 +4,7 @@ using Coupons.Dtos;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
 
-namespace Coupons.Application.Services
+namespace Coupons.Application.Services.Repositories
 {
     public class CouponsHistoryRepository : ICouponHistory
     {

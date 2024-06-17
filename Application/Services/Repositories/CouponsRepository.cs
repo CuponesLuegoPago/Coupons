@@ -4,7 +4,7 @@ using Coupons.Dtos;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
 
-namespace Coupons.Application.Services
+namespace Coupons.Application.Services.Repositories
 {   
     public class CouponsRepository : ICoupons
     {
@@ -26,7 +26,7 @@ namespace Coupons.Application.Services
         }
 
         //Get all Coupons
-        public List<Coupon> GetAll()
+        public List<Coupon> GetAllCoupons()
         {
             return _context.Coupons.ToList();
         }

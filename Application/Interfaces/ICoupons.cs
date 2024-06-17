@@ -6,7 +6,7 @@ namespace Coupons.Application.Interfaces
     public interface ICoupons
     {
         //Get all Coupons
-        List<Coupon> GetAll();
+        List<Coupon> GetAllCoupons();
 
         //Get Coupon by Id
         Coupon GetById(int id);

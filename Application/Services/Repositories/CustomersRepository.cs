@@ -5,7 +5,7 @@ using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
 using Coupons.Application.Utils.Profiles;
 
-namespace Coupons.Application.Services
+namespace Coupons.Application.Services.Repositories
 {
     public class CustomersRepository : ICustomers
     {
