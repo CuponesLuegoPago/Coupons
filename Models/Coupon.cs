@@ -23,6 +23,6 @@ namespace Coupons.Models
         public string? Status {get; set;}
         public int? CreatedBy {get; set;}
         //public MarketingUser? User {get; set;}
-        public DateOnly? CreatedAt {get; set;}
+        //public DateOnly? CreatedAt {get; set;}
     }
 }
