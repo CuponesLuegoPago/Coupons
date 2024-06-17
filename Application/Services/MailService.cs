@@ -2,7 +2,7 @@ using System.Text;
 using System.Text.Json;
 using Coupons.Models;
 
-namespace Coupons.Application.Services.Mail
+namespace Coupons.Application.Services
 {
     public class MailService
     {

@@ -1,9 +1,8 @@
 using System.Text;
 
-
-namespace Coupons.Application.Services.WebHooks
+namespace Coupons.Application.Services
 {
-    public class Errors
+    public class WebHook
     {
         public async void SendWebHook(string ErrorMessage){
              try

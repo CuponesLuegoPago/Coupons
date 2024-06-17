@@ -1,5 +1,9 @@
 using Coupons.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Coupons.Application.Utils.Profiles;
+using Coupons.Application.Services.Repositories;
+using Coupons.Application.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,8 +11,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Configuration of the interfaces that will be used
+builder.Services.AddScoped<ICustomers, CustomersRepository>();
+builder.Services.AddScoped<ICoupons, CouponsRepository>();
+builder.Services.AddScoped<ICouponHistory, CouponsHistoryRepository>();
+
 //Configuration to connect at the database
-builder.Services.AddDbContext<CuponContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("Connection"), Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
+builder.Services.AddDbContext<CouponsContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("Connection"), Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
+
+//Register AutoMapper profiles
+builder.Services.AddAutoMapper(typeof(CouponsHistoryProfile), typeof(CouponsProfile), typeof(CustomerProfile));
 
 //Configuration of controllers
 builder.Services.AddControllers();
