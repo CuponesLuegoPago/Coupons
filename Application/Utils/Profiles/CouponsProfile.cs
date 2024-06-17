@@ -8,8 +8,7 @@ namespace Coupons.Application.Utils.Profiles
     {
         public CouponsProfile()
         {
-            CreateMap<CouponsDto, Coupon>();
-            CreateMap<Coupon, CouponsDto>();
+            CreateMap<CouponsDto, Coupon>().ForAllMembers(options => options.Condition((src, dest, srcMember) => srcMember != null));;
         }
     }
 }
