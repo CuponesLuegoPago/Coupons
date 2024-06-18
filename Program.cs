@@ -25,8 +25,8 @@ builder.Services.AddAuthentication(opt => {
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Issuer"],
+            ValidIssuer = "http://localhost:5044",
+            ValidAudience = "http://localhost:5044",
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("3C7A6C4E2754B9A31F225E201C02D82E")) 
         };
     });
@@ -58,12 +58,8 @@ builder.Services.AddCors(options =>
 
 //Configuration of JWT
 builder.Services.AddAuthentication();
-builder.Services.AddAuthentication("Bearer").AddJwtBearer();
 
 var app = builder.Build();
-
-//Mapping of controllers
-app.MapControllers();
 
 //Register the use of Cors
 app.UseCors("AllowAnyOrigin");
@@ -71,6 +67,9 @@ app.UseCors("AllowAnyOrigin");
 //Register the use of JWT
 app.UseAuthentication();
 app.UseAuthorization();
+
+//Mapping of controllers
+app.MapControllers();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

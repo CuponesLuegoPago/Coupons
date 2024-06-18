@@ -1,4 +1,5 @@
 using Coupons.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Coupons.Application.Controllers.CouponsHistory
@@ -13,6 +14,7 @@ namespace Coupons.Application.Controllers.CouponsHistory
 
         [HttpGet]
         [Route("api/CouponsHistory")]
+        [Authorize]
         public IActionResult GetAllHistories()
         {
             return Ok(_couponHistory.GetAllHistories());

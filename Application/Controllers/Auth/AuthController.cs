@@ -17,8 +17,8 @@ namespace Coupons.Application.Controllers.Auth
             _context = context;
         }
 
-        /* [HttpPost]
-        [Route("api/auth/login")]
+        [HttpPost]
+        [Route("    ")]
         public async Task<IActionResult> Get([FromBody] AuthResponse authResponse)
         {
             var userAuth = _context.Pruebas.FirstOrDefault(u => u.Email == authResponse.Email && u.Password == authResponse.Password);
@@ -31,8 +31,23 @@ namespace Coupons.Application.Controllers.Auth
             {
                 var SecretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("3C7A6C4E2754B9A31F225E201C02D82E"));
                 var signinCredentials = new SigningCredentials(SecretKey, SecurityAlgorithms.HmacSha256);
-                //issuer: "";
+                var tokenConfigure = new JwtSecurityToken(
+                issuer: "http://localhost:5044",
+                audience : "http://localhost:5044",
+                claims : new List<Claim>(),
+                expires : DateTime.Now.AddHours(1),
+                signingCredentials : signinCredentials
+                );
+                var tokenWrite = new JwtSecurityTokenHandler().WriteToken(tokenConfigure);
+
+                return Ok(new
+                {
+                    token = tokenWrite
+                });
+
+                return Unauthorized();
+
             }
-        } */
+        }
     }
 }
