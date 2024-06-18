@@ -1,7 +1,5 @@
 using Coupons.Application.Interfaces;
-using Coupons.Application.Services.Repositories;
-using Coupons.Dtos;
-using Coupons.Models;
+using Coupons.Dtos.Updates;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Coupons.Application.Controllers.CouponsHistory
