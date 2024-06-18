@@ -5,16 +5,16 @@ namespace Coupons.Application.Interfaces
 {
     public interface ICoupons
     {
-        //Get all Coupons
+        //Get all CouponUsage
         List<Coupon> GetAllCoupons();
 
-        //Get Coupon by Id
+        //Get CouponUsage by Id
         Coupon GetById(int id);
 
-        //Create Coupon
+        //Create CouponUsage
         Coupon Create(Coupon coupon);
 
-        //Update Coupon
+        //Update CouponUsage
         Coupon Update(int id, CouponsDto coupon);
     }
 }

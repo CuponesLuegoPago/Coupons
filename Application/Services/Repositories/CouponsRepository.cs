@@ -45,5 +45,10 @@ namespace Coupons.Application.Services.Repositories
             _context.SaveChanges();
             return couponToUpdate;
         }
+
+        public Coupon Usage(int id, CouponsDto coupon)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
