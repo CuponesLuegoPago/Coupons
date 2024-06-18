@@ -1,5 +1,5 @@
 using Coupons.Models;
-using Coupons.Dtos;
+using Coupons.Dtos.Updates;
 
 namespace Coupons.Application.Interfaces
 {
