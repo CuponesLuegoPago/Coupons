@@ -1,11 +1,10 @@
-using Coupons.Models;
 using Coupons.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Coupons.Models;
 
 namespace Coupons.Controllers.Roles
 {
-    [ApiController]
-    public class RoleUpdateController
+    public class RoleUpdateController : ControllerBase
     {
         private readonly IRole _roleRepository;
 
@@ -15,7 +14,12 @@ namespace Coupons.Controllers.Roles
         }
 
         //Actualizar Rol
-        /* [HttpPut]
-        [Route("api/role{id}")] */
+        [HttpPut]
+        [Route("api/Roles/{id}")]
+        public IActionResult UpdateRole([FromBody] Role role, int Id)
+        {
+            var updatedRole = _roleRepository.UpdateRole(role, Id);
+            return Ok(updatedRole);
+        }
     }
 }

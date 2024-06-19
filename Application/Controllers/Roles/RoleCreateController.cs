@@ -22,8 +22,8 @@ namespace Coupons.Controllers.Roles
         {
             try
             {
-                _roleRepository.AddRole(role);
-                return Ok();
+                
+                return Ok(_roleRepository.AddRole(role));
             }
             catch (Exception e)
             {

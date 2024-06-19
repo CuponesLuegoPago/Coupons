@@ -1,15 +1,19 @@
+using AutoMapper;
+using Coupons.Dtos;
 using Coupons.Models;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
+
 namespace Coupons.Application.Services.Repositories
 {
     public class MarketingUserRepository : IMarketingUser
     {
-         private readonly CouponsContext _context;
-
-        public MarketingUserRepository(CouponsContext context)
+        private readonly CouponsContext _context;
+        private readonly IMapper _mapper;
+        public MarketingUserRepository(CouponsContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public void DeleteMarketingUser(MarketingUser marketingUser)
@@ -27,9 +31,12 @@ namespace Coupons.Application.Services.Repositories
             return _context.MarketingUser.ToList();
         }
 
-        public void UpdateMarketingUser(MarketingUser marketingUser)
+        public MarketingUser UpdateMarketingUser(MarketingUserDto marketingUser, int Id)
         {
-            throw new NotImplementedException();
+            var oldMarketingUser = _context.MarketingUser.Find(Id);
+            _mapper.Map(marketingUser, oldMarketingUser);
+            _context.SaveChanges();
+            return oldMarketingUser;
         }
 
         public void AddMarketingUser(MarketingUser marketingUser)

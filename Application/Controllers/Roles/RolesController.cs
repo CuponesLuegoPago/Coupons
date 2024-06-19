@@ -4,8 +4,6 @@ using Coupons.Models;
 
 namespace Coupons.Controllers.Roles
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class RolesController : ControllerBase
     {
         private readonly IRole _rolesRepository;

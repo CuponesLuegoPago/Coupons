@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Coupons.Application.Services.Repositories;
 using Coupons.Dtos;
-using Coupons.Models;
 using Coupons.Application.Interfaces;
 
 

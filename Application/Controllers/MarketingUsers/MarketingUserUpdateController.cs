@@ -1,11 +1,10 @@
-using Coupons.Models;
-using Coupons.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Coupons.Dtos;
+using Coupons.Application.Interfaces;
 
 namespace Coupons.Controllers.MarketingUsers
 {
-    [ApiController]
-    public class MarketingUserUpdateController
+    public class MarketingUserUpdateController : ControllerBase
     {
         private readonly IMarketingUser _marketingUserRepository;
 
@@ -14,6 +13,12 @@ namespace Coupons.Controllers.MarketingUsers
             _marketingUserRepository = marketingUserRepository;
         }
 
+        [HttpPut]
+        [Route("api/MarketingUsers/{id}")]
+        public IActionResult UpdateCustomer([FromBody] MarketingUserDto customer, int id)
+        {
+            return Ok(_marketingUserRepository.UpdateMarketingUser(customer, id));
+        }
        
     }
 }

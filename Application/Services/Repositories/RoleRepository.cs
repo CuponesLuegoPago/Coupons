@@ -1,3 +1,5 @@
+using AutoMapper;
+using Coupons.Dtos;
 using Coupons.Models;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
@@ -6,15 +8,18 @@ namespace Coupons.Application.Services.Repositories
 {
     public class RoleRepository : IRole
     {
-         private readonly CouponsContext _context;
-
-        public RoleRepository(CouponsContext context)
+        private readonly CouponsContext _context;
+        private readonly IMapper _mapper;
+        public RoleRepository(CouponsContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
-        public void AddRole(Role role)
+        public Role AddRole(Role role)
         {
-            throw new NotImplementedException();
+            _context.Role.Add(role);
+            _context.SaveChanges();
+            return role;
         }
 
         public void DeleteRole(Role role)
@@ -24,7 +29,7 @@ namespace Coupons.Application.Services.Repositories
 
         public Role GetRole(int Id)
         {
-            throw new NotImplementedException();
+            return _context.Role.Find(Id);
         }
 
         public IEnumerable<Role> GetRoles()
@@ -32,9 +37,11 @@ namespace Coupons.Application.Services.Repositories
             return _context.Role.ToList();
         }
 
-        public void UpdateRole(Role role)
+        public Role UpdateRole(Role role, int Id)
         {
-            throw new NotImplementedException();
+            _context.Role.Update(role);
+            _context.SaveChanges();
+            return role;
         }
     }
 }

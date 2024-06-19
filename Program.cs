@@ -23,7 +23,7 @@ builder.Services.AddScoped<IUserRole, UserRoleRepository>();
 builder.Services.AddDbContext<CouponsContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("Connection"), Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
 
 //Register AutoMapper profiles
-builder.Services.AddAutoMapper(typeof(CouponsHistoryProfile), typeof(CouponsProfile), typeof(CustomerProfile));
+builder.Services.AddAutoMapper(typeof(CouponsHistoryProfile), typeof(CouponsProfile), typeof(CustomerProfile), typeof(MarketingUserProfile), typeof(RoleProfile), typeof(UserRolProfile));
 
 //Configuration of controllers
 builder.Services.AddControllers();

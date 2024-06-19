@@ -1,3 +1,4 @@
+using Coupons.Dtos;
 using Coupons.Models;
 
 namespace Coupons.Application.Interfaces
@@ -8,8 +9,8 @@ namespace Coupons.Application.Interfaces
 
         Role GetRole(int Id);
 
-        void AddRole(Role role);
-        void UpdateRole(Role role);
+        Role AddRole(Role role);
+        Role UpdateRole(Role role, int Id);
         void DeleteRole(Role role);
     }
 }

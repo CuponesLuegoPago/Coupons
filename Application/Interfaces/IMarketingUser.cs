@@ -1,3 +1,4 @@
+using Coupons.Dtos;
 using Coupons.Models;
 
 namespace Coupons.Application.Interfaces
@@ -9,7 +10,7 @@ namespace Coupons.Application.Interfaces
         MarketingUser GetMarketingUser(int Id);
 
         void AddMarketingUser(MarketingUser marketingUser);
-        void UpdateMarketingUser(MarketingUser marketingUser);
+        MarketingUser UpdateMarketingUser(MarketingUserDto marketingUser, int Id);
         void DeleteMarketingUser(MarketingUser marketingUser);
     }
 }

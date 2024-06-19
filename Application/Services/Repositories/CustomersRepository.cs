@@ -3,7 +3,6 @@ using Coupons.Dtos;
 using Coupons.Models;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
-using Coupons.Application.Utils.Profiles;
 
 namespace Coupons.Application.Services.Repositories
 {
