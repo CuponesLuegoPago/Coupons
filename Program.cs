@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Coupons.Application.Utils.Profiles;
 using Coupons.Application.Services.Repositories;
 using Coupons.Application.Interfaces;
+using Coupons.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddScoped<ICustomers, CustomersRepository>();
 builder.Services.AddScoped<ICoupons, CouponsRepository>();
 builder.Services.AddScoped<ICouponHistory, CouponsHistoryRepository>();
 builder.Services.AddScoped<ICouponUsage, CouponUsageRepository>();
+builder.Services.AddScoped<IPurchase, PurchaseRepository>();
+builder.Services.AddScoped<IPurchaseCoupon, PurchaseCouponRepository>();
 
 //Configuration to connect at the database
 builder.Services.AddDbContext<CouponsContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("Connection"), Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
