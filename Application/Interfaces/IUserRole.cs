@@ -7,7 +7,7 @@ namespace Coupons.Application.Interfaces
     {
          IEnumerable<UserRol> GetUserRols();
 
-        Role GetRol(int id);
+        UserRol GetRol(int id);
 
         UserRol addUserRol(UserRol userRol);
         UserRol UpdateUserRol(UserRolDto userRol, int Id);

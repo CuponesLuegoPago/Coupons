@@ -19,6 +19,8 @@ namespace Coupons.Application.Services.Repositories
         public UserRol addUserRol(UserRol userRol)
         {
             _context.UserRole.Add(userRol);
+            Console.WriteLine("eee");
+            Console.WriteLine(userRol.UserId);
             _context.SaveChanges();
             return userRol;
         }
@@ -28,14 +30,14 @@ namespace Coupons.Application.Services.Repositories
             throw new NotImplementedException();
         }
 
-        public Role GetRol(int id)
+        public UserRol GetRol(int id)
         {
-            return _context.Role.Find(id);
+            return _context.UserRole.Include(u => u.User).Include(r => r.Role).FirstOrDefault(u => u.Id == id);
         }
 
         public IEnumerable<UserRol> GetUserRols()
         {
-            return _context.UserRole.Include(u => u.MarketingUser).Include(r => r.Role).ToList();
+            return _context.UserRole.Include(u => u.User).Include(r => r.Role).ToList();
         }
 
         public UserRol UpdateUserRol(UserRolDto userRol, int Id)

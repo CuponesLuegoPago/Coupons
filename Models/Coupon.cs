@@ -19,10 +19,8 @@ namespace Coupons.Models
         public double? MinPurchaseAmount {get; set;}
         public double? MaxPurchaseAmount {get; set;}
         public int? CustomerId {get; set;}
-        public Customer? Customer {get; set;}
         public string? Status {get; set;}
         public int? CreatedBy {get; set;}
-        //public MarketingUser? User {get; set;}
         public DateOnly? CreatedAt {get; set;}
     }
 }

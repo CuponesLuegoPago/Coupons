@@ -9,7 +9,6 @@ namespace Coupons.Models
         public string? Password { get; set; }
         public string? Email { get; set; }
         [JsonIgnore]
-        public List<UserRol>? UserRols { get; set;}
-
+        public List<UserRol>? userRols { get; set; }
     }
 }

@@ -17,12 +17,11 @@ namespace Coupons.Controllers.UserRols
         // Crear nuevo Rol de Usuario
         [HttpPost]
         [Route("api/userrols")]
-        public IActionResult CreateUserRol(UserRol userRol)
+        public IActionResult CreateUserRol([FromBody] UserRol userRol)
         {
             try
             {
-                _userRolRepository.addUserRol(userRol);
-                return Ok();
+                return Ok(_userRolRepository.addUserRol(userRol));
             }
             catch (Exception e)
             {
