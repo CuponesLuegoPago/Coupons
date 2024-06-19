@@ -4,8 +4,6 @@ using Coupons.Models;
 
 namespace Coupons.Controllers.UserRols
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class UserRolsController : ControllerBase
     {
         private readonly IUserRole _userRolsRepository;
@@ -21,7 +19,7 @@ namespace Coupons.Controllers.UserRols
         {
             try
             {
-                return NoContent(); /* _userRolsRepository.GetUserRols(); */
+                return Ok(_userRolsRepository.GetUserRols());  
             }
             catch (Exception e)
             {

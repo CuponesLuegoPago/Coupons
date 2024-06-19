@@ -1,20 +1,26 @@
 using Coupons.Models;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
+using Coupons.Dtos;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Coupons.Application.Services.Repositories
 {
     public class UserRoleRepository : IUserRole
     {
-         private readonly CouponsContext _context;
-
-        public UserRoleRepository(CouponsContext context)
+        private readonly CouponsContext _context;
+        private readonly IMapper _mapper;
+        public UserRoleRepository(CouponsContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
-        public void addUserRol(UserRol userRol)
+        public UserRol addUserRol(UserRol userRol)
         {
-            throw new NotImplementedException();
+            _context.UserRole.Add(userRol);
+            _context.SaveChanges();
+            return userRol;
         }
 
         public void DeleteRol(UserRol userRol)
@@ -24,17 +30,20 @@ namespace Coupons.Application.Services.Repositories
 
         public Role GetRol(int id)
         {
-            throw new NotImplementedException();
+            return _context.Role.Find(id);
         }
 
         public IEnumerable<UserRol> GetUserRols()
         {
-            return _context.UserRole.ToList();
+            return _context.UserRole.Include(u => u.MarketingUser).Include(r => r.Role).ToList();
         }
 
-        public void UpdateUserRol(UserRol userRol)
+        public UserRol UpdateUserRol(UserRolDto userRol, int Id)
         {
-            throw new NotImplementedException();
+            var oldUserRol = _context.UserRole.Find(Id);
+            _mapper.Map(userRol, oldUserRol);
+            _context.SaveChanges();
+            return oldUserRol;
         }
     }
 }

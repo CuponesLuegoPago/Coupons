@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Coupons.Controllers.UserRols
 {
-    [ApiController]
     public class UserRolCreateController : ControllerBase
     {
         private readonly IUserRole _userRolRepository;
