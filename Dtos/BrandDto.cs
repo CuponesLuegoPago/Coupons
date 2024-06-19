@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Coupons.Models;
 
-namespace Coupons.Models
+namespace Coupons.Dtos
 {
-    public class Brand
+    public class BrandDto
     {
-        public int Id {get; set;}
         public string Name {get; set;}
         public string Nit {get; set;}
         public string Country {get; set;}
@@ -16,8 +15,5 @@ namespace Coupons.Models
         public string WebSite {get; set;}
         public string Status {get; set;}
         public string CreateAt {get; set;}
-        [JsonIgnore]
-        public List<MarketplaceUser>? MarketplaceUsers {get; set;}
-        public List<BrandCoupons>? BrandCoupon {get; set;}
     }
 }

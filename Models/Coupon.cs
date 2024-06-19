@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Coupons.Models
@@ -24,5 +25,7 @@ namespace Coupons.Models
         public int? CreatedBy {get; set;}
         //public MarketingUser? User {get; set;}
         public DateOnly? CreatedAt {get; set;}
+        [JsonIgnore]
+        public List<BrandCoupon>? BrandCoupon {get; set;}
     }
 }

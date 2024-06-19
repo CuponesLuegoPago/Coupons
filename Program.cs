@@ -16,6 +16,7 @@ builder.Services.AddScoped<ICustomers, CustomersRepository>();
 builder.Services.AddScoped<ICoupons, CouponsRepository>();
 builder.Services.AddScoped<ICouponHistory, CouponsHistoryRepository>();
 builder.Services.AddScoped<IMarketPlaceUsers, MarketPlaceUser>();
+builder.Services.AddScoped<IBrandCoupon, BrandCouponRepository>();
 
 //Configuration to connect at the database
 builder.Services.AddDbContext<CouponsContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("Connection"), Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
