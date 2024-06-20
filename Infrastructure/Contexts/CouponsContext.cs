@@ -13,5 +13,6 @@ namespace Coupons.Infrastructure.Contexts
         public DbSet<MarketingUser> MarketingUser { get; set; }
         public DbSet<UserRol> UserRole { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<Prueba> Pruebas {get; set; }
     }
 }

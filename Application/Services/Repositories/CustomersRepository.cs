@@ -1,5 +1,5 @@
 using AutoMapper;
-using Coupons.Dtos;
+using Coupons.Dtos.Updates;
 using Coupons.Models;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;

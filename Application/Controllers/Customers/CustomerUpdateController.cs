@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Coupons.Dtos;
+using Coupons.Dtos.Updates;
 using Coupons.Application.Interfaces;
 
 

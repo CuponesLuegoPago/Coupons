@@ -22,7 +22,7 @@ namespace Coupons.Models
         public int? CustomerId {get; set;}
         public string? Status {get; set;}
         public int? CreatedBy {get; set;}
-        public DateOnly? CreatedAt {get; set;}
+        //public DateOnly? CreatedAt {get; set;}
         [JsonIgnore]
         public List<CouponHistory> couponHistories {get; set;}
     }

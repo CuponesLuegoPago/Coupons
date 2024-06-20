@@ -1,6 +1,6 @@
 using AutoMapper;
 using Coupons.Models;
-using Coupons.Dtos;
+using Coupons.Dtos.Updates;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;

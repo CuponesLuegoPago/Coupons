@@ -60,7 +60,7 @@ CREATE TABLE UserRole (
     UNIQUE(TypeDocument, NumDocument)
  );
 
-CREATE TABLE Coupon (
+CREATE TABLE Coupons (
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Code VARCHAR(125) NOT NULL,
     Name VARCHAR(45) NOT NULL,
