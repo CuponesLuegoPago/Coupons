@@ -1,4 +1,4 @@
--- Active: 1718495108140@@bwlr7jnitlvizuosnvq6-mysql.services.clever-cloud.com@3306
+-- Active: 1718825438805@@bwlr7jnitlvizuosnvq6-mysql.services.clever-cloud.com@3306@bwlr7jnitlvizuosnvq6
 CREATE TABLE Brand(
     Id INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(45) UNIQUE NOT NULL,
@@ -101,7 +101,9 @@ CREATE TABLE CouponUsage (
     CouponId INT NOT NULL,
     UserId INT NOT NULL,
     UsageDate DATE,
-    TransactionAmount DOUBLE
+    TransactionAmount DOUBLE,
+    FOREIGN KEY(CouponId) REFERENCES Coupons(Id),
+    FOREIGN KEY(UserId) REFERENCES MarketingUser(Id)
 );
 
 CREATE TABLE CouponHistory(
@@ -110,6 +112,6 @@ CREATE TABLE CouponHistory(
     ChangeDate DATE,
     FieldChanged VARCHAR(200),
     OldValue VARCHAR (200),
-    NewValue VARCHAR  (200)
+    NewValue VARCHAR  (200),
+    FOREIGN KEY(CouponId) REFERENCES Coupons(Id)
 );
-
