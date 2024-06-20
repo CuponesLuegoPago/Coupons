@@ -9,7 +9,7 @@ namespace Coupons.Application.Interfaces
 
         MarketingUser GetMarketingUser(int Id);
 
-        void AddMarketingUser(MarketingUser marketingUser);
+        MarketingUser AddMarketingUser(MarketingUser marketingUser);
         MarketingUser UpdateMarketingUser(MarketingUserDto marketingUser, int Id);
         void DeleteMarketingUser(MarketingUser marketingUser);
     }

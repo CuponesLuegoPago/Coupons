@@ -22,8 +22,8 @@ namespace Coupons.Controllers.MarketingUsers
         {
             try
             {
-                _marketingUserRepository.AddMarketingUser(marketingUser);
-                return Ok();
+              
+                return Ok(_marketingUserRepository.AddMarketingUser(marketingUser));
             }
             catch (Exception e)
             {

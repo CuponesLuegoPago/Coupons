@@ -3,6 +3,7 @@ using Coupons.Models;
 using Coupons.Dtos.Updates;
 using Coupons.Application.Interfaces;
 using Coupons.Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Coupons.Application.Services.Repositories
 {   
@@ -28,13 +29,13 @@ namespace Coupons.Application.Services.Repositories
         //Get all Coupons
         public List<Coupon> GetAllCoupons()
         {
-            return _context.Coupons.ToList();
+            return _context.Coupons.Include(u => u.Customer).ToList();
         }
 
         //Get Coupon by Id
         public Coupon GetById(int id)
         {
-            return _context.Coupons.Find(id);
+            return _context.Coupons.Include(u => u.Customer).FirstOrDefault(u => u.Id == id);
         }
 
         //Update a Coupon

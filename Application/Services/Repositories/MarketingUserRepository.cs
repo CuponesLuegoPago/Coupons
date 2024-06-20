@@ -39,10 +39,11 @@ namespace Coupons.Application.Services.Repositories
             return oldMarketingUser;
         }
 
-        public void AddMarketingUser(MarketingUser marketingUser)
+        public MarketingUser AddMarketingUser(MarketingUser marketingUser)
         {
             _context.MarketingUser.Add(marketingUser);
             _context.SaveChanges();
+            return marketingUser;
         }
     }
 }

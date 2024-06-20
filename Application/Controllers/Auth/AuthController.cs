@@ -18,7 +18,7 @@ namespace Coupons.Application.Controllers.Auth
         }
 
         [HttpPost]
-        [Route("    ")]
+        [Route("/api/auth/login")]
         public async Task<IActionResult> Get([FromBody] AuthResponse authResponse)
         {
             var userAuth = _context.Pruebas.FirstOrDefault(u => u.Email == authResponse.Email && u.Password == authResponse.Password);

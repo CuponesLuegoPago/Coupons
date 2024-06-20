@@ -25,5 +25,6 @@ namespace Coupons.Models
         //public DateOnly? CreatedAt {get; set;}
         [JsonIgnore]
         public List<CouponHistory> couponHistories {get; set;}
+        public Customer? Customer {get; set;}
     }
 }
