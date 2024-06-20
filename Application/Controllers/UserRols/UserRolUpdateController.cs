@@ -18,7 +18,7 @@ namespace Coupons.Controllers.UserRols
         //Actualizar el rol de usuario
         [HttpPut]
         [Route("api/userrols/{id}")]
-        public IActionResult UpdateUserRol(int id, UserRolDto userRol)
+        public IActionResult UpdateUserRol(int id, [FromBody] UserRolDto userRol)
         {
             try
             {

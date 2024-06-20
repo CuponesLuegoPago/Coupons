@@ -18,7 +18,7 @@ namespace Coupons.Controllers.MarketingUsers
         // Crear nuevo Usuario de Marteting
         [HttpPost]
         [Route("api/marketingUsers")]
-        public IActionResult CreateMarketingUser(MarketingUser marketingUser)
+        public IActionResult CreateMarketingUser([FromBody] MarketingUser marketingUser)
         {
             try
             {

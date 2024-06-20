@@ -18,7 +18,7 @@ namespace Coupons.Controllers.Roles
         // Crear nuevo Usuario de Marteting
         [HttpPost]
         [Route("api/roles")]
-        public IActionResult CreateRole(Role role)
+        public IActionResult CreateRole([FromBody] Role role)
         {
             try
             {
