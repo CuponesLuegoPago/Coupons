@@ -24,7 +24,11 @@ namespace Coupons.Models
         public int? CreatedBy {get; set;}
         //public DateOnly? CreatedAt {get; set;}
         [JsonIgnore]
-        public List<CouponHistory> couponHistories {get; set;}
+        public List<CouponHistory>? couponHistories {get; set;}
+        [JsonIgnore]
+        public List<BrandCoupon>? brandCoupons {get; set;}
+        [JsonIgnore]
+        public List<CouponUsage>? couponUsages {get; set;} 
         public Customer? Customer {get; set;}
     }
 }
